@@ -193,6 +193,10 @@ class TransactionBuilder(object):
         self._raw_data["data"] = data.hex()
         return self
 
+    def call_value(self,value:int)-> "TransactionBuilder":
+        self._raw_data["contract"][0]["parameter"]["value"]["call_value"] = value
+        return self
+    
     def fee_limit(self, value: int) -> "TransactionBuilder":
         """Set fee_limit of the transaction, in `SUN`."""
         self._raw_data["fee_limit"] = value
